@@ -1,0 +1,27 @@
+# Initial configuration for testing.
+
+language: cpp
+
+compiler:
+  - gcc
+
+git:
+  depth: 3
+  quiet: true
+
+branches:
+  only:
+  - fna
+
+before_install:
+  - sudo apt-get install -y libsdl2-dev
+addons:
+  apt:
+    update: true
+
+before_script:
+  - mkdir build
+  - cd build
+  - cmake ..
+
+script: make
